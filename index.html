@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
+  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FreeInsert: Disentangled Text-Guided Object Insertion in 3D Gaussian Scene without Spatial Priors
+</title>
+  <style>
+    .video-item{
+      display: block;
+      position: relative;
+    }
+    .caption {
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      padding: 0.5rem;
+      font-size: 1rem;
+    }
+    .caption-small img {
+    height: 3em;
+    vertical-align: middle;
+  }
+  </style>
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">FreeInsert: Disentangled Text-Guided Object Insertion in 3D Gaussian Scene without Spatial Priors
+</h1>
+
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <span>Chenxi Li</span><sup>1</sup>,</span>
+            <span class="author-block">
+              <span>Weijie Wang</span><sup>2</sup>,</span>
+            <span class="author-block">
+              <span>Qiang Li</span><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <span >Bruno Lepri</span><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <span>Nicu Sebe</span><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <span>Weizhi Nie</span><sup>1</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Tianjin University,</span>
+            <span class="author-block"><sup>2</sup>University of Trento</span>
+            <span class="author-block"><sup>3</sup>Fondazione Bruno Kessler</span>
+          </div>
+
+          <div class="is-size-5"><span class="author-block" style="font-weight: bolder;margin-top: 10px;">ACM Multimedia 2025</span></div>
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2505.01322"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2505.01322"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+
+              <span class="link-block">
+                <a href="https://github.com/tjulcx/FreeInsert"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-steve video-item">
+          <div class="caption caption-small">
+            Add a pair of <img src="./static/images/sunglass1_clean.png"> to the doll
+          </div>
+
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/doll_wearing sunglasses.mp4"
+                    type="video/mp4">
+          </video>
+
+        </div>
+        <div class="item item-chair-tp video-item">
+          <div class="caption caption-small">
+            Add a <img src="./static/images/hat2.png"> to the doll
+          </div>
+          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/doll_wearing_a_hat.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba video-item">
+          <div class="caption caption-small">
+            Add a <img src="./static/images/hat1.png"> to the man
+          </div>
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/man_wears_a_hat.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-fullbody video-item">
+          <div class="caption caption-small">
+            Add a <img src="./static/images/dog1-removebg-preview.png"> to replace the bear
+          </div>
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/bear_to_dog.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-blueshirt video-item">
+          <div class="caption caption-small">
+            Add a bowtie to the doll
+          </div>
+          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/doll_wearing_a_bowtie.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-mask video-item">
+          <div class="caption caption-small">
+            Add a <img src="./static/images/sunglass1_clean.png"> to the doll on the forehead
+          </div>
+          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/doll_wearing_sunglasses_forehead.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-coffee video-item">
+          <div class="caption caption-small">
+            Add a <img src="./static/images/apple1.png"> on the table
+          </div>
+          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/Add an apple on the table.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-toby video-item">
+          <div class="caption caption-small">
+            Add a cupcake on the nose of the doll
+          </div>
+          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/Add_a_cupcake_on_the_nose.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+Text-driven object insertion in the 3D scene is an emerging task that enables intuitive scene editing through natural language.  
+Despite its potential, existing 2D editing-based methods often suffer from reliance on spatial priors such as 2D masks, 3D bounding boxes to. 
+And they struggle to ensure inserted object consistency.
+These constraints hinder flexibility and scalability in real-world applications.
+          </p>
+          <p>
+In this paper, we propose FreeInsert, a novel framework that leverages foundation models (MLLMs, LGM, and diffusion model) to disentangle object generation and spatial placement, enabling unsupervised and flexible object insertion in 3D scenes without spatial priors. 
+FreeInsert begins with an MLLM-based parser that extracts structured semantics—including object types, spatial relationships, and attachment regions—from user instructions.
+These semantics guide both the reconstruction of the inserted object for 3D consistency and the learning of its degrees of freedom. 
+We first leverage the spatial reasoning capabilities of MLLMs to initialize the object's pose and scale. 
+To further enhance natural integration with the scene, a hierarchical spatially-aware stage is employed to refine the object’s placement, incorporating both the spatial semantics and priors inferred by the MLLM. 
+Finally, the object’s appearance is enhanced using inserted-object image to improve visual fidelity.
+</p>
+Experimental results demonstrate that FreeInsert enables semantically coherent, spatially precise, and visually realistic 3D insertions, without requiring any spatial priors, offering a user-friendly and flexible editing experience.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Pipeline. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Pipeline</h2>
+        <div class="content has-text-justified" style="width: 110%;">
+          <img src="./static/images/pipeline_all_0714_1pdf_01.png" alt="Pipeline" class="pipeline-image">
+          </div>
+      </div>
+    </div>
+    <!--/ Pipeline. -->
+  </div>
+</section>
+
+
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{li2025freeinsert,
+  author    = {Li, Chenxi and Wang, Weijie and Li, Qiang and Lepri, Bruno and Sebe, Nicu and Nie, Weizhi},
+  title     = {FreeInsert: Disentangled Text-Guided Object Insertion in 3D Gaussian Scene without Spatial Priors},
+  journal   = {Proceedings of the 33nd ACM International Conference on Multimedia},
+  year      = {2025},
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
